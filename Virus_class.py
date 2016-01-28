@@ -66,7 +66,7 @@ def readMd5file():
         if i >= Apikeycount1:
             t = t+1
             i = 0'''
-def main1(md5):
+def parsemd5(md5):
     apikey='55120838f82de4a041382ffefdeb6b7accac770db1c30edbc76a1cff9418b642'
     parse(vt.getReport(md5,apikey),md5)
 
@@ -344,9 +344,8 @@ def MD5():
 if __name__ == "__main__":
     vt=VTAPI()
     allmd5=MD5()
-    #print allmd5
     pool = Pool(processes=250)
-    pool.map(main1, allmd5)
+    pool.map(parsemd5(), allmd5)
     pool.close()
     pool.join()
     print "finish"
