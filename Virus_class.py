@@ -8,7 +8,7 @@ from pprint import pprint
 from lib.core.readcnf import read_conf
 from lib.core.constants import ROOTPATH,VTAPIKEY,JSONPATH
 from multiprocessing import Pool
-inputpath,outputpath,Scantype,datebaseip,datebaseuser,datebasepsw,datebasename,datebasetable,md5filename=read_conf()
+inputpath,outputpath,Scantype,datebaseip,datebaseuser,datebasepsw,datebasename,datebasetable,md5filename,key=read_conf()
 import threading
 import time
 lock=threading.Lock()
@@ -67,7 +67,7 @@ def readMd5file():
             t = t+1
             i = 0'''
 def parsemd5(md5):
-    apikey='55120838f82de4a041382ffefdeb6b7accac770db1c30edbc76a1cff9418b642'
+    apikey=key
     parse(vt.getReport(md5,apikey),md5)
 
 
