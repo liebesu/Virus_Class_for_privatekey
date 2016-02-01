@@ -17,9 +17,14 @@ def read_conf():
     datebasename=config.get("Datebase","databasename")
     datebasetable=config.get("Datebase","tablename")
     md5filename=config.get("MD5 file","md5filename")
-    key=config.get.get("private key","key")
+    key=config.get("private key","key")
 
-    return inputpath,outputpath,Scantype,datebaseip,datebaseuser,datebasepsw,datebasename,datebasetable,md5filename,key
+    config = ConfigParser.ConfigParser()
+    config.read(os.path.join(CONFPATH,"newname.conf"))
+    newav=config.sections("sort")
+
+    return inputpath,outputpath,Scantype,datebaseip,datebaseuser,datebasepsw,datebasename,datebasetable,md5filename,\
+           key,newav
 
 def check_config():
     '''check ida.config is exist or not

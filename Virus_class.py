@@ -8,7 +8,7 @@ from pprint import pprint
 from lib.core.readcnf import read_conf
 from lib.core.constants import ROOTPATH,VTAPIKEY,JSONPATH
 from multiprocessing import Pool
-inputpath,outputpath,Scantype,datebaseip,datebaseuser,datebasepsw,datebasename,datebasetable,md5filename,key=read_conf()
+inputpath,outputpath,Scantype,datebaseip,datebaseuser,datebasepsw,datebasename,datebasetable,md5filename,key,newav=read_conf()
 import threading
 import time
 lock=threading.Lock()
