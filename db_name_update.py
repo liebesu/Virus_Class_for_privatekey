@@ -24,7 +24,6 @@ def db_name_update(md5):
             db = MySQLdb.connect(datebaseip,datebaseuser,datebasepsw,datebasename)
             cursor = db.cursor()
             sql="select * from "+datebasetable+" where Md5='"+md5+"'"
-            print sql
             cursor.execute(sql)
             result=cursor.fetchall()
             cursor.close()
