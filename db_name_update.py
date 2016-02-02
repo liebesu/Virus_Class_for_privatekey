@@ -23,7 +23,8 @@ def db_name_update(md5):
             db.close()
             db = MySQLdb.connect(datebaseip,datebaseuser,datebasepsw,datebasename)
             cursor = db.cursor()
-            sql="select * from "+datebasetable+"where Md5="+md5
+            sql="select * from "+datebasetable+" where Md5='"+md5+"'"
+            print sql
             cursor.execute(sql)
             result=cursor.fetchall()
             cursor.close()
@@ -48,7 +49,7 @@ def allmd5():
     return allmd5
 
 if __name__=="__main__":
-    pool=Pool(processes=10)
+    pool=Pool(processes=20)
     pool.map(db_name_update,allmd5())
     pool.close()
     pool.join()
