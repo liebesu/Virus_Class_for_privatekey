@@ -36,7 +36,7 @@ def db_name_update(md5):
 
     db = MySQLdb.connect(datebaseip,datebaseuser,datebasepsw,datebasename)
     cursor = db.cursor()
-    sql="update "+datebasetable+"set Virus_Name="+newvirusname+"where Md5="+md5
+    sql="update "+datebasetable+"set Virus_Name="+newvirusname+" where Md5 ='"+md5+"'"
     cursor.execute(sql)
     cursor.close()
     db.close()
