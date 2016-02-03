@@ -53,9 +53,9 @@ def db_name_update(md5):
                 cursor.close()
                 db.close()
 
-            os.system("echo " +md5+ " >> /tmp/new.txt" )
+            os.system("echo " +md5+ " >> new.txt" )
         else:
-            os.system("echo " +md5+ " >> /tmp/no.txt" )
+            os.system("echo " +md5+ " >> no.txt" )
 
 def allmd5():
     md5filedir = os.path.join(ROOTPATH,"md5file")
