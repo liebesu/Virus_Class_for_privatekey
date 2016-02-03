@@ -21,7 +21,7 @@ def read_conf():
 
     config = ConfigParser.ConfigParser()
     config.read(os.path.join(CONFPATH,"newname.conf"))
-    newav=config.get("AV_NAME","sort")
+    newav=[e.strip() for e in config.get("AV_NAME","sort").split(',')]
 
     return inputpath,outputpath,Scantype,datebaseip,datebaseuser,datebasepsw,datebasename,datebasetable,md5filename,\
            key,newav
