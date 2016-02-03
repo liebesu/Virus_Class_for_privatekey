@@ -1,6 +1,7 @@
 from multiprocessing.pool import Pool
 import MySQLdb
 import os
+import time
 from lib.core.readcnf import read_conf
 from lib.core.constants import ROOTPATH
 
@@ -19,6 +20,7 @@ def db_name_update(md5):
         cursor.close()
         db.close()
     except:
+            time.sleep(5)
             cursor.close()
             db.close()
             db = MySQLdb.connect(datebaseip,datebaseuser,datebasepsw,datebasename)
