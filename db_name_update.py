@@ -58,8 +58,19 @@ def db_name_update(md5):
             os.system("echo " +md5+ " >> no.txt" )
 
 def allmd5():
+    db = MySQLdb.connect(datebaseip,datebaseuser,datebasepsw,datebasename)
+    cursor = db.cursor()
+    tmpmd5file='/tmp/nomd5'
+    if os.path.exists(tmpmd5file):
+        os.remove(tmpmd5file)
+    md5sql='select Md5 from '+datebasetable+' where Virus_Name ="null" into outfile '+'"'+tmpmd5file+'"'
+    cursor.execute(md5sql)
+    db.commit()
+    cursor.close()
+    db.close()
     md5filedir = os.path.join(ROOTPATH,"md5file")
     allmd5file=os.path.join(md5filedir,md5filename)
+    os.system("cp /tmp/nomd5 "+allmd5file)
     allmd5=open(allmd5file,"r").readlines()
     allmd5=[md5.replace('\n', '').replace('\r', '') for md5 in allmd5]
     return allmd5
