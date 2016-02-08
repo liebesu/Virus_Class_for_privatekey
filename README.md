@@ -6,4 +6,4 @@ first you should have a private key in virustotal;
 enjoy it :)
 
 the private key should buy form virustotal
-thx
+thx.
