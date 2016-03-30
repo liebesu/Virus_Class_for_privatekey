@@ -12,17 +12,6 @@ inputpath,outputpath,Scantype,datebaseip,datebaseuser,datebasepsw,datebasename,d
 import threading
 import time
 lock=threading.Lock()
-'''def check():
-    if scantype=="md5":'''
-
-
-'''def checkMd5file():
-
-    lists=os.listdir(md5filedir)
-    for list in lists:'''
-
-
-
 
 class VTAPI():
 
